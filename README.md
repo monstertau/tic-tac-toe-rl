@@ -36,7 +36,7 @@ sudo npm i create-react-app
 ##### First, clone this project in to your local machine:
 
 ```
-git clone https://github.com/monstertau/tic-tac-toe.git
+git clone https://github.com/monstertau/tic-tac-toe-rl.git
 ```
 
 ##### Install all the node_modules packages which was missing:
