@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tic Tac Toe Project
+Simple Tic Tac Toe Project for AI ICT 20191 Class 
+## Getting Started
+### `Installing & Prerequisites`
+##### Nodejs newest version:
 
-## Available Scripts
+``` 
+https://nodejs.org/en/ 
+```
 
-In the project directory, you can run:
+##### Python version 3.x
 
-### `npm start`
+``` 
+https://www.python.org/downloads/
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##### Pip newest version
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+$ sudo apt update
+$ sudo apt install python3-pip
+```
+##### Installing Python Flask
 
-### `npm test`
+```
+$ pip install Flask
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##### In order to run Reactjs Project, write to your terminal:
 
-### `npm run build`
+``` 
+sudo npm i create-react-app 
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `Running the Program`
+##### First, clone this project in to your local machine:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+git clone https://github.com/monstertau/tic-tac-toe.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+##### Install all the node_modules packages which was missing:
 
-### `npm run eject`
+``` 
+npm install 
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+##### To run the program in localhost:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To start the front-end server:
+``` 
+npm start 
+```
+To start the back-end server, go to directory ```tic-tac-toe-rl-backend```, then write to your terminal:
+``` 
+export FLASK_APP="server.py"
+export FLASK_ENV=development
+python -m flask run
+```
+## Authors
+* **Dung Trung Vu**
+* **Hue Thi Duong**
+* **Van Thi Thuy Giap**
+* **Hang Thi Tran**
