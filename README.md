@@ -23,7 +23,7 @@ $ sudo apt install python3-pip
 ##### Installing Python Flask
 
 ```
-$ pip install Flask
+$ pip3 install Flask
 ```
 
 ##### In order to run Reactjs Project, write to your terminal:
@@ -55,7 +55,7 @@ To start the back-end server, go to directory ```tic-tac-toe-rl-backend```, then
 ``` 
 export FLASK_APP="server.py"
 export FLASK_ENV=development
-python -m flask run
+python3 -m flask run
 ```
 ## Authors
 * **Dung Trung Vu**

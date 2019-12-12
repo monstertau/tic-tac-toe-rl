@@ -3,36 +3,29 @@ import random
 import re
 from itertools import groupby
 
-'''
-   Copyright 2017 Neil Slater
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-'''
-
-
 class TicTacToeGame():
+    ''' 
+    Init the general variables for the tic-tac-toe game:
+    + State: State of the tic-tac-toe board, can be 
+                filled with X or O from 0 to 9
+    + Player: Which player are taking turn?
+    + Winner: Define the winner of the game
+    '''
     def __init__(self):
         self.state = '         '
         self.player = 'X'
         self.winner = None
-
-    def allowed_moves(self):
+        
+    ''' Return the list of allowed 
+        moves in that player's turn '''
+    def allowed_moves(self,verbose=False):
         states = []
         for i in range(len(self.state)):
             if self.state[i] == ' ':
                 states.append(self.state[:i] + self.player + self.state[i+1:])
         return states
 
+    ''' Make the move for the player if it is allowed '''
     def make_move(self, next_state):
         if self.winner:
             raise(Exception("Game already completed, cannot make another move!"))
@@ -49,9 +42,12 @@ class TicTacToeGame():
         else:
             self.player = 'X'
 
+    ''' Check whether the game is still playable '''
     def playable(self):
         return ((not self.winner) and any(self.allowed_moves()))
 
+    ''' Define the policy for the winner (if 3 of X or O 
+                are in horizontal, vertical or diagonal) '''
     def predict_winner(self, state):
         lines = [(0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6),
                  (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6)]
@@ -64,6 +60,7 @@ class TicTacToeGame():
                 winner = 'O'
         return winner
 
+    ''' Check whether the player's move is valid or not '''
     def __valid_move(self, next_state):
         allowed_moves = self.allowed_moves()
         if any(state == next_state for state in allowed_moves):
@@ -80,6 +77,13 @@ class TicTacToeGame():
 
 
 class Agent():
+    '''
+    Init the general variables of our agent:
+    + V: the dictionary contains (state: value) which define the q-table for the agent
+    + NewGame: TicTacToeGame class
+    + alpha: learning rate
+    + value_player: player who take the first turn, default is X
+    '''
     def __init__(self, game_class, epsilon=0.1, alpha=0.5, value_player='X'):
         self.V = dict()
         self.NewGame = game_class
@@ -230,6 +234,8 @@ class Agent():
                 human_move = game.state[:idx-1] + \
                     game.player + game.state[idx:]
         return human_move
+
+
 def demo_game_stats(agent):
 
     results = [agent.demo_game() for i in range(100)]
